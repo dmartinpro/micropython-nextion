@@ -61,7 +61,6 @@ class Nextion(UART):
             write_buffer[len(command) + index + 1:len(command) + index + 1 + len(str(arg))] = bytes(str(arg), 'ASCII')
             index += 1 + len(str(arg))
         write_buffer[-3:] = b'\xff\xff\xff'
-        print(write_buffer)
         self.write(write_buffer)
 
     def check_data(self, callback):
